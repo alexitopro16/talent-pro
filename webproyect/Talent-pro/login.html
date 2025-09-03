@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Talent-Pro</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .login-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.15);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #ae2029 ;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 16px;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #ae2029 ;
+        }
+        .toggle-link {
+            color: #6a82fb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+        .logo-login {
+            width: 120px;
+            height: 120px;
+            display: block;
+            margin: 0 auto 30px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-card">
+            
+            <div id="login">
+                <h2 style="text-align: center; color: #2d6cdf; margin-bottom: 25px;">Iniciar Sesión</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Correo electrónico</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; margin-bottom: 20px;">
+                        Iniciar Sesión
+                    </button>
+                </form>
+                <p style="text-align: center;">
+                    ¿No tienes una cuenta? 
+                    <a href="#" id="show-register" class="toggle-link">Regístrate aquí</a>
+                </p>
+            </div>
+
+            <div id="register" style="display: none;">
+                <h2 style="text-align: center; color: #2d6cdf; margin-bottom: 25px;">Crear Cuenta</h2>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-name">Nombre completo</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Correo electrónico</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Contraseña</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; margin-bottom: 20px;">
+                        Crear Cuenta
+                    </button>
+                </form>
+                <p style="text-align: center;">
+                    ¿Ya tienes cuenta? 
+                    <a href="#" id="show-login" class="toggle-link">Inicia sesión aquí</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/login.js"></script>
+</body>
+</html>

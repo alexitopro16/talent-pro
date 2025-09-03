@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica - Talent-Pro</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .practice-header {
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+        .practice-content {
+            display: grid;
+            gap: 30px;
+        }
+        .content-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(44,62,80,0.08);
+        }
+        .progress-bar {
+            background: #e1e5e9;
+            border-radius: 10px;
+            height: 8px;
+            margin: 20px 0;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #fc5c7d, #6a82fb);
+            height: 100%;
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.5s ease-in-out;
+        }
+        .chat-window {
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #e1e5e9;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fcfcfc;
+        }
+        .chat-input-group {
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #e1e5e9;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header class="full-width-image" style="background-image: url('./image/gobiernocolor.jpg');">
+        <div class="logo-container" style="text-align: center; margin-top: -75px; position: relative; z-index: 10;">
+            <img src="./image/image_85b95f.png" alt="Logo de Talent-pro" class="talentpro-logo" style="width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 8px 32px rgba(44, 62, 80, 0.2); object-fit: contain;">
+        </div>
+        <nav class="top-nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="perfil.html" class="nav-link">Mi Perfil</a>
+            <a href="test.html" class="nav-link">Test Vocacional</a>
+            <a href="carreras.html" class="nav-link">Carreras</a>
+            <a href="login.html" class="nav-link">Salir</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="back-button-container">
+            <a href="carreras.html" class="back-button">← Volver a la carrera</a>
+        </div>
+        
+        <div class="practice-header">
+            <h1 id="practice-title" style="margin: 0;">Título de la Práctica</h1>
+            <p id="practice-description" style="font-size: 1.1rem; opacity: 0.9;">Descripción corta de la práctica.</p>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+        </div>
+
+        <div class="practice-content">
+            <div class="content-section">
+                <h2 style="color: #fc5c7d; margin-bottom: 20px;">📝 Instrucciones del Proyecto</h2>
+                <ul id="instructions-list"></ul>
+            </div>
+            
+            <div class="content-section">
+                <h2 style="color: #fc5c7d; margin-bottom: 20px;">🛠️ Recursos y Herramientas</h2>
+                <ul id="resources-list"></ul>
+            </div>
+
+            <div class="content-section">
+                <h2 style="color: #fc5c7d; margin-bottom: 20px;">❓ Preguntas Frecuentes</h2>
+                <ul id="faqs-list"></ul>
+            </div>
+
+            <div class="chat-section content-section">
+                <h3 style="color: #fc5c7d; margin-bottom: 15px;">🤖 Asistente de Proyecto</h3>
+                <p style="color: #666; margin-bottom: 15px;">¿Necesitas ayuda con tu proyecto? Pregúntale al asistente.</p>
+                <div id="chat-window" class="chat-window">
+                    <div style="color: #666; font-style: italic;">¡Hola! Estoy aquí para ayudarte con tu proyecto práctico. ¿En qué puedo asistirte?</div>
+                </div>
+                <div class="chat-input-group">
+                    <input type="text" id="chat-input" class="chat-input" placeholder="Escribe tu pregunta aquí...">
+                    <button id="send-chat" class="btn">Enviar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button id="prev-practice" class="btn" disabled>← Práctica Anterior</button>
+            <button id="next-practice" class="btn">Siguiente Práctica →</button>
+        </div>
+    </main>
+
+    <footer class="full-width-image" style="background-image: url('./image/gobiernocon.jpg'); margin-top: 50px;">
+    </footer>
+
+    <script src="scripts/carreras.js"></script>
+    <script src="scripts/contenido-detalle.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const carreraSeleccionada = decodeURIComponent(params.get('carrera'));
+            const index = parseInt(params.get('index'));
+
+            const practicas = carrerasContenido[carreraSeleccionada].practicas;
+            const practicaData = contenidoPracticas[carreraSeleccionada][index];
+
+            document.getElementById('practice-title').textContent = practicas[index].titulo;
+            document.getElementById('practice-description').textContent = practicas[index].descripcion;
+            
+            const instructionsList = document.getElementById('instructions-list');
+            instructionsList.innerHTML = practicaData.instrucciones.map(item => `<li>${item}</li>`).join('');
+
+            const resourcesList = document.getElementById('resources-list');
+            resourcesList.innerHTML = practicaData.recursos.map(item => `<li>${item}</li>`).join('');
+
+            const faqsList = document.getElementById('faqs-list');
+            faqsList.innerHTML = practicaData.faqs.map(faq => `
+                <li>
+                    <strong>${faq.pregunta}</strong>
+                    <p>${faq.respuesta}</p>
+                </li>
+            `).join('');
+
+            // Lógica de navegación
+            const prevBtn = document.getElementById('prev-practice');
+            const nextBtn = document.getElementById('next-practice');
+            
+            if (index > 0) {
+                prevBtn.disabled = false;
+                prevBtn.onclick = () => window.location.href = `practica-detalle.html?carrera=${encodeURIComponent(carreraSeleccionada)}&index=${index - 1}`;
+            }
+            if (index < practicas.length - 1) {
+                nextBtn.disabled = false;
+                nextBtn.onclick = () => window.location.href = `practica-detalle.html?carrera=${encodeURIComponent(carreraSeleccionada)}&index=${index + 1}`;
+            }
+
+            // Simulación de chat (muy básica)
+            const chatInput = document.getElementById('chat-input');
+            const sendBtn = document.getElementById('send-chat');
+            const chatWindow = document.getElementById('chat-window');
+
+            sendBtn.addEventListener('click', () => {
+                const pregunta = chatInput.value.trim();
+                if (pregunta) {
+                    const userMsg = document.createElement('p');
+                    userMsg.style.textAlign = 'right';
+                    userMsg.style.color = '#2d6cdf';
+                    userMsg.innerHTML = `<strong>Tú:</strong> ${pregunta}`;
+                    chatWindow.appendChild(userMsg);
+                    chatInput.value = '';
+
+                    setTimeout(() => {
+                        const botMsg = document.createElement('p');
+                        botMsg.style.textAlign = 'left';
+                        botMsg.style.color = '#fc5c7d';
+                        botMsg.innerHTML = `<strong>Asistente:</strong> Entendido. Te ayudaré a resolver dudas sobre tu proyecto.`;
+                        chatWindow.appendChild(botMsg);
+                        chatWindow.scrollTop = chatWindow.scrollHeight;
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

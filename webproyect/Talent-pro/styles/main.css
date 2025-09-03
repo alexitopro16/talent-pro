@@ -1,0 +1,322 @@
+/* Colores de la identidad gráfica (Extraídos de las imágenes) */
+:root {
+    --color-primary: #1e3a5f; /* Azul Oscuro */
+    --color-secondary: #2c5545; /* Verde */
+    --color-accent: #fcd55c; /* Amarillo */
+    --color-background-light: #f4f6f8; /* Fondo claro */
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --color-card-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* Estilos de la franja verde a los costados */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background-color: var(--color-secondary);
+    z-index: -1;
+}
+
+body::before {
+    left: 0;
+}
+
+body::after {
+    right: 0;
+}
+
+/* Estilos de base y tipografía */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--color-background-light);
+    color: var(--color-text-dark);
+}
+
+main, .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px; /* Ajuste para el nuevo diseño */
+}
+
+/* Estilos del encabezado */
+.full-width-image {
+    width: 100%;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 20px;
+}
+
+.logo-container {
+    text-align: center;
+    margin-top: -75px;
+    position: relative;
+    z-index: 10;
+}
+
+.talentpro-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.2);
+    object-fit: contain;
+}
+
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    padding: 10px 0;
+    width: 100%; /* Ocupa todo el ancho */
+    position: absolute; /* Para que quede sobre la imagen */
+    bottom: 0; /* Para pegarlo a la parte de abajo del header */
+}
+.nav-link {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Estilos del contenido principal */
+.main-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.section-title {
+    color: #ae2029 ;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    color: #333;
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Estilos de la sección de selección de test */
+.test-choice {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.test-option {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.test-option:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos de los botones */
+.btn, .btn-career {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background-color: #ae2029 ;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.btn:hover, .btn-career:hover {
+    background-color: #1e3a5f;
+    transform: translateY(-2px);
+}
+
+/* Estilos para las preguntas del test */
+.question {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.option-label {
+    display: block;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.option-label:hover {
+    background-color: #e2f2ff;
+    border-color: #ae2029 ;
+}
+
+.option-label input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Estilos de la sección de resultados */
+.result-title {
+    color: #ae2029 ;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.result-description {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.career-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+
+.btn-career {
+    background-color: #2c5545;
+    width: auto;
+    display: inline-block;
+}
+
+.btn-career:hover {
+    background-color: #2c5545;
+}
+
+.item-card {
+    display: block;
+    background: linear-gradient(135deg, #ffffff 95%, #e3eaff 100%);
+    border: 2px solid #e3eaff;
+    border-radius: 15px;
+    padding: 25px;
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.08);
+}
+
+.item-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(44, 62, 80, 0.18);
+    border-color: #2c5545; /* El color verde que pediste */
+}
+
+.item-title {
+    color: #ae2029 ;
+    margin: 0 0 10px 0;
+    font-size: 1.25rem; /* Ligeramente más grande */
+    font-weight: 600;
+}
+
+.item-description {
+    color: #666;
+    margin: 0;
+    font-size: 0.95rem; /* Ligeramente más grande */
+    line-height: 1.5;
+}
+
+/* Estilos para el título de la carrera */
+.carrera-title {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+/* ... (todo tu código anterior) ... */
+
+/* Clases para las imágenes de cabecera y pie de página */
+.full-width-image {
+    width: 100%;
+    height: 150px; /* Puedes ajustar la altura según tus preferencias */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Estilos de la barra de navegación */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para que se vea la imagen */
+    padding: 10px 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+/* Asegúrate que tu footer tenga estos estilos */
+footer.full-width-image {
+    width: 100%;
+    height: 150px; /* Ajusta la altura si es necesario */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 50px; /* Separación del contenido principal */
+}
+/* ... (todo tu código anterior) ... */
+
+/* Estilos de la barra de navegación */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+    width: 100%;
+}

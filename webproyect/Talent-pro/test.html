@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Vocacional - Talent-Pro</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <header class="full-width-image" style="background-image: url('./image/gobiernocolor.jpg');">
+        <div class="logo-container" style="text-align: center; margin-top: -75px; position: relative; z-index: 10;">
+            <img src="./image/image_85b95f.png" alt="Logo de Talent-pro" class="talentpro-logo" style="width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 8px 32px rgba(44, 62, 80, 0.2); object-fit: contain;">
+        </div>
+        <nav class="top-nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="perfil.html" class="nav-link">Mi Perfil</a>
+            <a href="test.html" class="nav-link">Test Vocacional</a>
+            <a href="carreras.html" class="nav-link">Carreras</a>
+            <a href="login.html" class="nav-link">Salir</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1 class="section-title">Test Vocacional con IA</h1>
+            <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">
+                Descubre las carreras que mejor se adaptan a tu personalidad, intereses y habilidades.
+            </p>
+        </div>
+
+        <div id="test-choice" class="test-choice">
+            <div class="test-option">
+                <div style="font-size: 3rem; margin-bottom: 15px;">✅</div>
+                <h3>Test con Opciones</h3>
+                <p>Responde preguntas de opción múltiple sobre tus intereses, preferencias y habilidades. Rápido y efectivo.</p>
+            </div>
+            <div class="test-option">
+                <div style="font-size: 3rem; margin-bottom: 15px;">✍️</div>
+                <h3>Test Personalizado</h3>
+                <p>Responde preguntas abiertas para un análisis más profundo y personalizado de tu perfil vocacional.</p>
+            </div>
+        </div>
+
+        <div id="test-section" style="display: none;">
+        </div>
+
+        <div id="result-section" style="display: none;">
+        </div>
+    </main>
+
+    <footer class="full-width-image" style="background-image: url('./image/gobiernocon.jpg'); margin-top: 50px;">
+    </footer>
+
+    <script src="scripts/matching-engine.js"></script>
+    <script src="scripts/test.js"></script>
+</body>
+</html>
